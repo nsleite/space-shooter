@@ -20,6 +20,7 @@ body{
     background-image: var(--space);
     background-color: black;
     background-size: contain;
+    overflow: hidden;
 }
 
 .player{
@@ -28,5 +29,28 @@ body{
     height: 60px;
     left: 20px;
     top: 300px;
+    transform: rotate(45deg);
+}
 
+.shot{
+    position: relative;
+    width: 15px;
+    height: 25px;
+    transform: rotate(-90deg);
+    filter: invert(0.25);
+}
+
+.enemy{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    transform: rotate(-90deg);
+}
+
+.dead-enemy{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    transform: rotate(-90deg);
+    opacity: 0;
 }
