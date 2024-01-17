@@ -1,0 +1,32 @@
+:root{
+    --space: url(https://img.freepik.com/free-photo/starry-night-sky_1048-11828.jpg?t=st=1705421074~exp=1705421674~hmac=dc440abea7eb64b636d283fc03ded6bca26c684af7dd3e87abdf364c592650e9);
+}
+
+body{
+    height: 100vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 0;
+    margin: 0;
+    font-family: sans-serif;
+    background-color: aqua;
+}
+
+#main-play-area{
+    width: 700px;
+    height: 700px;
+    background-image: var(--space);
+    background-color: black;
+    background-size: contain;
+}
+
+.player{
+    position: relative;
+    width: 60px;
+    height: 60px;
+    left: 20px;
+    top: 300px;
+
+}
