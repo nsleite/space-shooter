@@ -1,5 +1,10 @@
 :root{
     --space: url(https://img.freepik.com/free-photo/starry-night-sky_1048-11828.jpg?t=st=1705421074~exp=1705421674~hmac=dc440abea7eb64b636d283fc03ded6bca26c684af7dd3e87abdf364c592650e9);
+    --shot: url(https://cdn-icons-png.flaticon.com/512/9644/9644961.png?ga=GA1.1.1699188909.1702300763&);
+    --player: url(https://cdn-icons-png.freepik.com/512/703/703623.png?ga=GA1.1.1699188909.1702300763&);
+    --enemy1: url(https://cdn-icons-png.freepik.com/512/784/784925.png?ga=GA1.1.1699188909.1702300763&);
+    --enemy2: url(https://cdn-icons-png.freepik.com/512/784/784923.png?ga=GA1.1.1699188909.1702300763&);
+    --enemy3: url(https://cdn-icons-png.freepik.com/512/784/784922.png?ga=GA1.1.1699188909.1702300763&);
 }
 
 body{
@@ -14,43 +19,80 @@ body{
     background-color: aqua;
 }
 
+.div{
+    border: 1px white solid;
+}
+
 #main-play-area{
+    position: relative;
     width: 700px;
     height: 700px;
     background-image: var(--space);
     background-color: black;
     background-size: contain;
-    overflow: hidden;
+    /* overflow: hidden; */
 }
 
 .player{
-    position: relative;
+    position: absolute;
     width: 60px;
     height: 60px;
-    left: 20px;
+    left: 50px;
     top: 300px;
+    background-image: var(--player);
+    background-size: cover;
     transform: rotate(45deg);
 }
 
 .shot{
-    position: relative;
-    width: 15px;
+    background-size: cover;
+    position: absolute;
+    width: 25px;
     height: 25px;
-    transform: rotate(-90deg);
+    left: 50px;
+    top: 300px;
+    background-image: var(--shot);
+    transform: scale(1.2, 0.5) rotate(-90deg);
     filter: invert(0.25);
 }
 
 .enemy{
-    position: relative;
+    position: absolute;
+    background-size: cover;
     width: 60px;
     height: 60px;
     transform: rotate(-90deg);
 }
 
+.type1{
+    background-image: var(--enemy1);
+}
+.type2{
+    background-image: var(--enemy2);
+}
+.type3{
+    background-image: var(--enemy3);
+}
 .dead-enemy{
     position: relative;
     width: 60px;
     height: 60px;
-    transform: rotate(-90deg);
+    /* transform: rotate(-90deg); */
     opacity: 0;
+}
+
+.game-instructions{
+    position: relative;
+    color: aliceblue;
+    text-shadow: 0 0 2px yellow;
+    top: 1rem;
+    left: 13rem;
+}
+
+.start-button{
+    position: relative;
+    color: aliceblue;
+    left: 20rem;
+    top: 5rem;
+    cursor: pointer;
 }
