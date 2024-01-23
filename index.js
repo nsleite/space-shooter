@@ -5,7 +5,7 @@ const startButton = document.querySelector('.start-button');
 const enemies = ['type1','type2','type3']
 
 var colided = false;
-var lives = 3;
+var lifes = 3;
 var score = 0;
 var enemyTimeInterval = 1500;
 
@@ -66,6 +66,7 @@ function moveShot(shot){
                 alien.classList.add('dead-enemy');
                 shot.remove();
                 score ++;
+                updateScore();
                 clearInterval(moveShotInterval);
             };
         })
@@ -98,7 +99,12 @@ function moveEnemy(enemy){
             if(Array.from(enemy.classList).includes('dead-enemy')){
                 enemy.remove();
             } else {
-                gameover();
+                enemy.remove();
+                lifes -= 1;
+                updateScore();
+                if (lifes===0){
+                    gameover();
+                }
             }
         } else {
             enemy.style.left = `${enemyPosition.x - 2}px`;
@@ -126,21 +132,40 @@ function checkCollision(shot, enemy){
 
 startButton.addEventListener('click', () => {
     score = 0;
+    lifes = 3;
+    addScore();
     playGame();
 })
-
-function playGame(){
+function addScore(){
     startButton.style.display = 'none';
     initText.style.display = 'none';
+    let scoreText = document.createElement('h4');
+    scoreText.classList.add('game-instruction');
+    scoreText.setAttribute('id', 'score');
+    playArea.appendChild(scoreText);
+}
+
+function updateScore(){
+    document.getElementById('score').innerHTML = `score: ${score} \t lifes: ${lifes}`;
+}
+function playGame(){
     window.addEventListener('keydown', function(event){
         play(event.key);
     });
     enemyInterval = setInterval(() => {
         createEnemy();
     }, enemyTimeInterval);
-
 }
 
 function gameover(){
-
+    let enemies = document.querySelectorAll('.enemy');
+    enemies.forEach((enemy) => enemy.remove());
+    let shots = document.querySelectorAll('.shot');
+    shots.forEach((shot) => shot.remove());
+    setTimeout(() => {
+        alert('game over!');
+        player.style.top = "250px";
+        startButton.style.display = "block";
+        initText.style.display = "block";
+    });
 }

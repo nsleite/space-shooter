@@ -30,7 +30,7 @@ body{
     background-image: var(--space);
     background-color: black;
     background-size: contain;
-    /* overflow: hidden; */
+    overflow: hidden;
 }
 
 .player{
@@ -73,6 +73,7 @@ body{
 .type3{
     background-image: var(--enemy3);
 }
+
 .dead-enemy{
     position: relative;
     width: 60px;
@@ -82,11 +83,12 @@ body{
 }
 
 .game-instructions{
-    position: relative;
+    font-size: 20px;
+    position: absolute;
     color: aliceblue;
     text-shadow: 0 0 2px yellow;
-    top: 1rem;
-    left: 13rem;
+    top: 30px;
+    left: 175px;
 }
 
 .start-button{
